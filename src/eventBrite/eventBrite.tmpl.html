@@ -1,0 +1,54 @@
+<div class="eventBriteContainer container" style="padding-top: 20px;">
+  <!-- attribute -->
+  <!-- <div notifications></div> -->
+
+  <!-- Make sure if you want block level you don't put it inside an inline like here -->
+  <!-- <span notificaitons></span> -->
+
+   <!-- element -->
+  <notifications></notifications>
+
+  <!-- <myform submit="addEvent(name, location, date)">
+    <myinput caption="Event Name" model="name"></myinput>
+    <myinput caption="Event Location" model="location"></myinput>
+    <myinput caption="Event Date" model="date"></myinput>
+
+    <button type="submit">Submit</button>
+  </myform> -->
+
+  <form name="eventForm" novalidate ng-submit="eventForm.$valid && addEvent(name, location, date)">
+    <myinput caption="Event Name" model="name"></myinput>
+    <myinput caption="Event Location" model="location"></myinput>
+    <myinput caption="Event Date" model="date"></myinput>
+
+    <!-- <div class="form-group">
+      <label for="name">Name</label>
+      <input ng-model="name" placeholder="Event Name" required ng-minlength="5" class="form-control" id="name" />
+    </div> -->
+    <!-- <input ng-model="location" placeholder="Event Location" required />
+    <input ng-model="date" placeholder="Event Date" required /> -->
+
+    <button type="submit">Submit</button>
+
+    <span class="error" ng-show="eventForm.$invalid && !eventForm.$pristine">Please address the above errors</span>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>What</th>
+        <th>Where</th>
+        <th>When</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in events">
+        <td><a href="/#/events/{{event.event_id}}">{{event.event_id}}</a></td>
+        <td>{{event.what}}</td>
+        <td>{{event.when}}</td>
+        <td>{{event.where}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
